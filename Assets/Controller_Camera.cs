@@ -22,6 +22,22 @@ public class Controller_Camera : MonoBehaviour
     {
         ProcessingCameraMoving();
         ProcessingCameraRotating();
+        ProcessingKeyInterruptEvent();
+    }
+
+    public void ProcessingKeyInterruptEvent()
+    {
+        if (Input.GetAxis("Cancel") > 0)
+        {
+            DisableCameraMoving();
+        }
+        if (!this.enableCameraMoving)
+        {
+            if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+            {
+                EnableCameraMoving();
+            }
+        }
     }
 
     public void EnableCameraMoving()
@@ -49,8 +65,8 @@ public class Controller_Camera : MonoBehaviour
     }
     void _ProcessingCameraRotatingWithMouse()
     {
-        pitch -= config.rotatingSpeed.x * Input.GetAxis("Mouse Y");
-        yaw += config.rotatingSpeed.y * Input.GetAxis("Mouse X");
+        pitch -= this.config.rotatingSpeed.x * Input.GetAxis("Mouse Y");
+        yaw += this.config.rotatingSpeed.y * Input.GetAxis("Mouse X");
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
     }
     void _ProcessingCameraRotatingWithController() {}
@@ -58,10 +74,11 @@ public class Controller_Camera : MonoBehaviour
     {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
+        float vector3Y = Input.GetAxis("Vector3Y");
         rigidbody.velocity = new Vector3(
-            horizontal * config.movingSpeed.x,
-            rigidbody.velocity.y, // Keyboard, EQ?
-            vertical * config.movingSpeed.y
+            horizontal * this.config.movingSpeed.x,
+            vector3Y * this.config.movingSpeed.y, // Keyboard, EQ?
+            vertical * this.config.movingSpeed.z
         );
     }
 }

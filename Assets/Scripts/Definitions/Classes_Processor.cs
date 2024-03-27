@@ -4,9 +4,9 @@ using UnityEngine;
 public enum MovingStatus
 {
     Idle,
-    Forwading,
-    Backwarding,
-    Rotating
+    Rotating,
+    Forwarding,
+    Backwarding
 }
 
 [System.Serializable]
