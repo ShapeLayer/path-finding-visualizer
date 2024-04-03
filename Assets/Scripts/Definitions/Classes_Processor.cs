@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [System.Serializable]
@@ -48,3 +49,34 @@ public class Config_Processor
         this.backwardMovingTriggerRange = backwardMovingTriggerRange;
     }
 }
+
+public class Events_Processor
+{
+    public static event EventHandler MovingStatusChanged;
+    public static event EventHandler HeadingPointChanged;
+    public static void InvokeMovingStatusChanged(object? sender, EventArgs e)
+    {
+        Events_Processor.MovingStatusChanged?.Invoke(sender, e);
+    }
+    public static void InvokeHeadingPointChanged(object? sender, EventArgs e)
+    {
+        Events_Processor.HeadingPointChanged?.Invoke(sender, e);
+    }
+}
+
+public class MovingStatusChangedArgs : EventArgs {
+    public MovingStatus status { get; set; }
+    public MovingStatusChangedArgs(MovingStatus status)
+    {
+        this.status = status;
+    }
+}
+public class HeadingPointChangedArgs : EventArgs
+{
+    public Vector2 Changed { get; set; }
+    public HeadingPointChangedArgs(Vector2 Changed)
+    {
+        this.Changed = Changed;
+    }
+}
+

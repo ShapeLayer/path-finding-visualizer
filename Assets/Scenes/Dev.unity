@@ -436,11 +436,8 @@ MonoBehaviour:
     backwardMovingTriggerRange: 10
   pointsHeading: []
   pointsPassed: []
-  processorHeading:
-    src: {x: 0, y: 0}
-    dest: {x: 0, y: 0}
-    dir: {x: 0, y: 0}
   movingStatus: 0
+  processorHeading: {x: 0, y: 0}
   displayModelObject: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
@@ -550,7 +547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
   config:
-    movingSpeed: {x: 10, y: 10}
+    movingSpeed: {x: 10, y: 10, z: 10}
     rotatingSpeed: {x: 2, y: 2}
   configRigidbody:
     mass: 1

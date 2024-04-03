@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Controller_Processor : MonoBehaviour
 {
     public Config_Processor config = new Config_Processor();
@@ -60,6 +59,7 @@ public class Controller_Processor : MonoBehaviour
         if (this.pointsHeading.Count == 0) return;
         this.processorHeading = this.pointsHeading[0].position;
         _SetMovingStatusToStart();
+        Events_Processor.InvokeHeadingPointChanged(this, new HeadingPointChangedArgs(this.processorHeading));
     }
     void _SetMovingStatusToStart()
     {

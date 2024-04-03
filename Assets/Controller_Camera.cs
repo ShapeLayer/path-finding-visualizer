@@ -77,7 +77,7 @@ public class Controller_Camera : MonoBehaviour
         float vector3Y = Input.GetAxis("Vector3Y");
         rigidbody.velocity = new Vector3(
             horizontal * this.config.movingSpeed.x,
-            vector3Y * this.config.movingSpeed.y, // Keyboard, EQ?
+            vector3Y * this.config.movingSpeed.y,
             vertical * this.config.movingSpeed.z
         );
     }
