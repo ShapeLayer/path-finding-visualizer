@@ -28,6 +28,7 @@ public class PositionPoint
 public class Config_Processor
 {
     public string modelObjectName;
+    public string processorObjectName;
     public int velocity;
     public int angularVelocity;
     public bool isBackwardMovingBeforeDestination;
@@ -36,6 +37,7 @@ public class Config_Processor
     public Config_Processor
     (
         string modelObjectName = "model",
+        string processorObjectName = "Processor",
         int velocity = 10,
         int angularVelocity = 10,
         bool isBackwardMovingBeforeDestination = true,
@@ -43,6 +45,7 @@ public class Config_Processor
     )
     {
         this.modelObjectName = modelObjectName;
+        this.processorObjectName = processorObjectName;
         this.velocity = velocity;
         this.angularVelocity = angularVelocity;
         this.isBackwardMovingBeforeDestination = isBackwardMovingBeforeDestination;

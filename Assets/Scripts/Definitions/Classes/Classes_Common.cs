@@ -151,51 +151,5 @@ public class Config_LineRenderer
 }
 
 [System.Serializable]
-public class InvalidFieldExistsException : Exception
-{
-    public InvalidFieldExistsException() : base() {}
-    public InvalidFieldExistsException(string message) : base(message) {}
-    public InvalidFieldExistsException(string message, Exception inner) : base(message, inner) {}
-}
-
-[System.Serializable]
 public class Config_Transform
 {}
-
-public class VectorUtils
-{
-    public static Vector3 Vector2To3(Vector2 vector, float y = 0)
-    {
-        return new Vector3(vector.x, y, vector.y);
-    }
-}
-
-public class ColorUtils
-{
-    public static Gradient ColorToGradient(Color color)
-    {
-        Gradient gradient = new Gradient();
-        
-        GradientColorKey[] colors = new GradientColorKey[2];
-        colors[0] = new GradientColorKey(color, 0f);
-        colors[1] = new GradientColorKey(color, 1f);
-
-        GradientAlphaKey[] alphas = new GradientAlphaKey[2];
-        alphas[0] = new GradientAlphaKey(1f, 0f);
-        alphas[1] = new GradientAlphaKey(1f, 1f);
-
-        gradient.SetKeys(colors, alphas);
-        return gradient;
-    }
-}
-
-public class CurveUtils
-{
-    public static AnimationCurve ScalarToCurve(float value)
-    {
-        AnimationCurve curve = new AnimationCurve();
-        curve.AddKey(0.0f, value);
-        curve.AddKey(1.0f, value);
-        return curve;
-    }
-}
