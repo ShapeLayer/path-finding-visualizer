@@ -7,7 +7,8 @@ public enum MovingStatus
     Idle,
     Rotating,
     Forwarding,
-    Backwarding
+    Backwarding,
+    BackwardRotating
 }
 
 [System.Serializable]
@@ -76,10 +77,9 @@ public class MovingStatusChangedArgs : EventArgs {
 }
 public class HeadingPointChangedArgs : EventArgs
 {
-    public Vector2 Changed { get; set; }
-    public HeadingPointChangedArgs(Vector2 Changed)
+    public PositionPoint Changed { get; set; }
+    public HeadingPointChangedArgs(PositionPoint Changed)
     {
         this.Changed = Changed;
     }
 }
-
