@@ -36,15 +36,16 @@ public class Controller_ProcessorGroup : MonoBehaviour
         _new.transform.parent = transform;
         return _new;
     }
-    public GameObject AddNewProcessor(Vector3? initPosition, List<PositionPoint> positionPoints)
+    public GameObject AddNewProcessor(Vector3? initPosition, List<PositionPoint>? pointsHeading)
     {
         GameObject _new = AddNewProcessor();
         GameObject _newProcessor = _new.transform.Find(this.processorConfigTemplate.processorObjectName).gameObject;
-        _newProcessor.GetComponent<Controller_Processor>().pointsHeading = positionPoints;
+        _newProcessor.GetComponent<Controller_Processor>().pointsHeading = pointsHeading ?? new List<PositionPoint>();
+        _newProcessor.transform.position = initPosition ?? new Vector3(0, 0, 0);
         return _new;
     }
 
-    public GameObject GenerateNewProcessor()
+    GameObject GenerateNewProcessor()
     {
         GameObject _new = Instantiate(processorPrefab);
         return _new;

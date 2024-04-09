@@ -23,6 +23,11 @@ public class PositionPoint
 {
     public Vector2 position;
     public PositionPointType pointType;
+    public PositionPoint(Vector2 position, PositionPointType pointType)
+    {
+        this.position = position;
+        this.pointType = pointType;
+    }
 }
 
 [System.Serializable]

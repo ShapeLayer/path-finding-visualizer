@@ -27,6 +27,20 @@ public class Controller_Processor : MonoBehaviour
         ProcessingMoving();
     }
 
+    public void AddPointHeading(PositionPoint position)
+    {
+        this.pointsHeading.Add(position);
+    }
+    public void AddPointHeading(Vector2 position)
+    {
+        this.pointsHeading.Add(new PositionPoint(position, PositionPointType.Destination));
+    }
+
+    public void RemovePointHeadingAt(int idx)
+    {
+        this.pointsHeading.RemoveAt(idx);
+    }
+
     void ProcessingMoving()
     {
         if (this.movingStatus == MovingStatus.Idle) return;
