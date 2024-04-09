@@ -1,5 +1,7 @@
 # Path Finding Visualizer Documentation
 
+* [Commons (`./Commons`)](./Commons/)
+  * [How to Use](./Commons/HowToUse.md)
 * [Prefab Controllers (`./Prefabs`)](./Prefabs/)
   * [Processor GameObject](./Prefabs/GameObject_Processor.md)
     * [Processor Controller](./Prefabs/Controller_Processor.md)
